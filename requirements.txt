@@ -1,0 +1,6 @@
+python-dotenv
+pyTelegramBotApi
+vk-api
+discord.py
+sympy
+BeautifulSoup4
