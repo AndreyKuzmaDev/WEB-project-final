@@ -39,4 +39,9 @@ for event in longpoll.listen():
                 send_messages(chat_id, 'Таймер установлен.')
                 asyncio.run(real_timer(answer, chat_id))
             elif answer != 'NO_ANSWER':
-                send_messages(chat_id, answer)
+                try:
+                    send_messages(chat_id, answer)
+                except Exception:
+                    send_messages(chat_id, 'Слишком длинный ответ')
+
+

@@ -134,6 +134,26 @@ def problem(text):
         return 'На ноль делить нельзя'
 
 
+def write_pi(text):
+    try:
+        data = text.split()
+        pi = open('pi.txt').read()
+        s = 'знаков'
+        for i in data:
+            if 'знак' in i:
+                s = i
+                break
+        n = int(data[data.index(s) - 1])
+        if n >= 4000:
+            raise IndexError
+        res = pi[:n + 2]
+        return res
+    except IndexError:
+        return 'Максимум знаков после запятой - 4000'
+    except Exception:
+        return 'Напишите сколько знаков должно быть после запятой'
+
+
 # Ключевые слова
 KEY_WORDS = {'новости': news,
              'рандомное число': random_int,
@@ -151,7 +171,9 @@ KEY_WORDS = {'новости': news,
              'уравне': equation,
              'пример': problem,
              'вычисли': problem,
-             'сгенерируй': random_message}
+             'сгенерируй': random_message,
+             'число пи': write_pi}
+
 
 # Темы для шуток
 THEMES = {'программист': 'programmers',
